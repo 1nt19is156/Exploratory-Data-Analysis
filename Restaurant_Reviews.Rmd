@@ -1,0 +1,469 @@
+---
+title: "restaurant_r"
+author: "sonal_soni"
+date: '2022-06-26'
+output: html_document
+---
+
+to read the csv file and store it in re, it is used for large data
+
+```{r}
+re <- read.csv(file.choose(), header = TRUE, sep = ",");
+```
+
+display the contents of the re. All the observations and variables will be displayed 
+```{r}
+re;
+```
+
+Search command gives a list of packages loaded
+```{r}
+search();
+```
+
+head() function in R returns the fist part of the vector , matrix , table ,data frame or function that is passed to it as a parameter. generally 
+it returns first six values 
+```{r}
+head(re);
+```
+
+tail() function in R returns the last part of the vector, matrix , table , data frame or function that is passed to it as a parameter .
+generally it returns last six values.
+```{r}
+tail(re);
+```
+
+head() returns first part of the dataframe . generally it returns first 6 rows but here we are specifying that first 10 rows must be printed 
+```{r}
+head(re,10);
+```
+
+tail() returns last part of the dataframe . generally it returns last 6 rows but here we are specifying that last 10 rows must be printed 
+```{r}
+tail(re,10);
+```
+
+Structure of the dataframe . str() command is used to examine the structure of the object , also gives the number of observations and 
+number of variables along with data types 
+```{r}
+str(re);
+```
+
+it will give names of the columns 
+```{r}
+names(re);
+```
+
+used to return a vector of character strings containing all the variables and functions in that directory
+```{r}
+ls();
+```
+
+it gives the names of the columns of data frame re
+```{r}
+colnames(re);
+```
+
+it gives the names of the columns of data frame re
+```{r}
+rownames(re);
+```
+
+displays the summary of the dataframe 
+```{r}
+summary(re);
+```
+
+class() command is used to obtain information about the type of the object 
+```{r}
+class(re);
+```
+
+it gives the sum of the columns 
+```{r}
+colSums(is.na(re));
+```
+
+prints the maximum value in column liked in re dataframe 
+```{r}
+max(re$Liked);
+```
+
+prints the minimum value in column Liked in RE dataframe 
+```{r}
+min(re$Liked);
+```
+
+prints the median of the Liked column in Re dataframe 
+```{r}
+median(re$Liked);
+```
+
+prints the mean of the Liked column in Re dataframe 
+```{r}
+mean(re$Liked);
+```
+
+prints the mode of the Liked column in Re dataframe
+```{r}
+mode(re$Liked);
+```
+
+sort function returns the results sorted in ascending order . we can use minus sign to get results in descending order
+```{r}
+sort(re$Review);
+```
+
+order function in R returns the position of each element of its input in acsneding or descending order 
+```{r}
+order(re$Review);
+```
+
+rank function will return a dataframe providing the rank of each element within a dataframe  
+```{r}
+rank(re$Review);
+```
+
+gives both rows and columns of dataframes re
+```{r}
+dimnames(re);
+```
+
+prdict() function in R is used to predict the data based on input values
+```{r}
+predictor=c(rep('open',3),rep('closed',2));
+```
+```{r}
+predictor;
+```
+
+prints the length of the review column
+```{r}
+length(re$Review);
+```
+
+the with function evaluates an R expression in an environment constructed based on dataframe 
+```{r}
+ww=with(re,order(re$Review,re$Liked));
+```
+
+prints the entries of ww object
+```{r}
+ww;
+```
+
+class() command is used to obtain the information about the type of the object
+```{r}
+class(re);
+```
+
+conversion of data frame to matrix 
+```{r}
+re.mat=as.matrix(re);
+```
+
+prints the entries of re object 
+```{r}
+re.mat;
+```
+
+conversion of data frame to list 
+```{r}
+frame.list=as.list(re);
+```
+
+prints the entries of re object 
+```{r}
+frame.list;
+```
+
+gives the value of standard deviation for Liked column  
+```{r}
+sd(re$Liked,na.rm=TRUE);
+```
+
+na.omit - used to strip out NA items 
+```{r}
+length(na.omit(re$Review));
+```
+
+the log() function returns the logarithm of the value in the base . by default , this function produces the natural logarithm value of the re
+```{r}
+log(re$Liked);
+```
+
+it rotates the data frame 
+```{r}
+t(re);
+```
+
+used to compute sum of table entries for a given index 
+```{r}
+margin.table(re$Liked);
+```
+
+it is used to calculate the value of each cell in a table as a proportion of all values 
+```{r}
+prop.table(re$Liked);
+```
+
+summary of the dataframe 
+```{r}
+summary(re);
+```
+
+used to examine the structure of the object 
+```{r}
+str(re);
+```
+
+it will recall the last 25 commands 
+```{r}
+history(re);
+```
+
+prints the first column in re object 
+```{r}
+re[1];
+```
+
+prints the first two columns of dataframe re
+```{r}
+re[1:2];
+```
+
+prints all columns except first column of dataframe re
+```{r}
+re[-1];
+```
+
+prints only selected columns and all rows in datframe re 
+```{r}
+re[c(2)];
+```
+
+prints the total columns in re dataframe 
+```{r}
+length(re);
+```
+
+
+```{r}
+re[(length(re)-2):length(re)];
+```
+
+the seq R function generates a sequence of numeric value 
+```{r}
+re[seq(1,length(re),2)];
+```
+
+sort function returns the results sorted in ascending order 
+```{r}
+sort(re$Review);
+```
+
+sorts Liked column
+```{r}
+sort(re$Liked);
+```
+
+order function returns the position of each element in ascending or descending order 
+```{r}
+order(re$Review);
+```
+
+
+```{r}
+order(re$Liked);
+```
+
+prints the value present in first row and second column 
+```{r}
+re[1,2];
+```
+
+prints the value present in second row , of all two columns in re dataframe
+```{r}
+re[2,1:2];
+```
+
+prints values of all rows in second column 
+```{r}
+re[,2];
+```
+
+only the specified rows and all the columns except second column will be printed 
+```{r}
+re[c(55,3),-2];
+```
+
+here the column is specified as Liked , only that columns specified rows will be printed 
+```{r}
+re[c(3,4),"Liked"];
+```
+
+all rows of column two will be printed 
+```{r}
+re[2];
+```
+
+all column values of specified rows will be printed 
+```{r}
+re[c(1,2)];
+```
+
+we are using order function on Liked column 
+```{r}
+order(re$Liked,re[,2]);
+```
+
+the with function evaluates an R expression in an environment constuct based on dataframe 
+```{r}
+with(re,order(re$Liked));
+```
+
+prints all the rows of Liked column 
+```{r}
+re$Liked;
+```
+
+prints only the first four rows of Liked column 
+```{r}
+re$Liked[1:4];
+```
+
+the with function evaluates an R expression and prints all the values in Liked column 
+```{r}
+with(re,Liked);
+```
+
+prints the column names 
+```{r}
+names(re);
+```
+
+the quantile() function in R can be used to calculate the sample quantiles of the dataset 
+```{r}
+quantile(re$Liked);
+```
+
+to calculate the five number summary in the R programming language we use fivenum() function 
+```{r}
+fivenum(re$Liked);
+```
+
+calculate quantile at 20%
+```{r}
+quantile(re$Liked,0.2);
+```
+
+calculate quantiles at 30%,80%,90%
+```{r}
+quantile(re$Liked,c(0.3,0.8,0.9));
+```
+
+calculate quantiles at 50%,75%,25%
+```{r}
+quantile(re$Liked,c(0.5,0.75,0.25));
+```
+
+gives cummulative sum of Liked column 
+```{r}
+cumsum(re$Liked);
+```
+
+gives cummulative max of Liked column
+```{r}
+cummax(re$Liked);
+```
+
+gives cummulative min of Liked column 
+```{r}
+cummin(re$Liked);
+```
+
+gives cummulative product values of Liked column 
+```{r}
+cumprod(re$Liked);
+```
+
+
+```{r}
+seq=(along=re);
+```
+
+
+```{r}
+seq_along(re);
+```
+
+
+```{r}
+seq(from=1,to=10,by=2);
+```
+
+loading dplyr library and adding new column to the re datframe . we use mutate function to add new column 
+```{r}
+library(dplyr);
+re %>% mutate(newcol=1);
+```
+
+for reodering we use select function . here we are selecting Liked to be first column and everything to be intact 
+```{r}
+re %>% select(Liked,everything());
+```
+
+selecting only value of Liked having 1
+```{r}
+re %>% filter(Liked==1);
+```
+
+renaming the existing column name. for that we use rename function 
+```{r}
+re %>% rename(Likes=Liked);
+```
+
+visuaalization of points 
+```{r}
+library(ggplot2);
+ggplot(re,aes(x=Liked,y=Liked))+geom_point();
+```
+
+
+```{r}
+library(dplyr);
+dislike<- rep(c(100),1);
+re %>% mutate(newcol1=dislike);
+```
+
+
+```{r}
+colnames(re);
+```
+
+visualisation of line graph 
+```{r}
+library(ggplot2);
+ggplot(re,aes(x=Liked,y=Liked))+geom_line();
+```
+
+visualisation of points on line graph 
+```{r}
+library(ggplot2);
+ggplot(re,aes(x=Liked,y=Liked))+geom_line()+geom_point();
+```
+
+visualisation of bar graph of values
+```{r}
+ggplot(re,aes(x=Liked,y=Liked))+geom_col();
+```
+
+visualisation of bar graphs of Liked 
+```{r}
+ggplot(re,aes(x=Liked))+geom_bar();
+```
+
+
+```{r}
+ggplot(re,aes(x=Liked))+geom_histogram(binwidth=5);
+```
